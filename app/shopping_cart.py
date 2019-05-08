@@ -7,6 +7,9 @@ import datetime
 # Refactoring price formatting logic: Display in USD with two decimals
 def to_usd(product_price):
     return "${0:,.2f}".format(product_price)
+# Refactoring time stamp formatting logic: Ensures that human friendly current date/time is displayed
+def human_friendly_timestamp(date_time):
+    return date_time.strftime("%m-%d-%Y %I:%M %p")
 
 
 if __name__ == "__main__":
@@ -70,7 +73,7 @@ if __name__ == "__main__":
 
     # The date and time of the beginning of the checkout process, formatted in a human-friendly way.
     print("--------------------------------")
-    print("Checkout Time: ", datetime.datetime.now().strftime("%m-%d-%Y %I:%M %p"))
+    print("Checkout Time: ", human_friendly_timestamp(datetime.datetime.now()))
 
     # The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $1.50).
     print("--------------------------------")
