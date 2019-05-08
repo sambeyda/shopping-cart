@@ -3,6 +3,7 @@
 
 from app.shopping_cart import to_usd, human_friendly_timestamp, find_product
 import datetime
+import pytest
 #Basic Challenge
 def test_to_usd():
     #Tests whether number is returned with $ sign and two decimal places
@@ -27,8 +28,15 @@ def test_get_product():
     ]
     #def find_product(selected_id, products):
     #selected id, products
+    #Ensure result is correct
     matching_product = find_product("5", products)
     assert matching_product["name"]== "Green Chile Anytime Sauce"
     assert matching_product["department"]== "pantry"
     assert matching_product["aisle"]== "marinades meat preparation"
     assert matching_product["price"]== 7.99
+    #Ensure error is processed when ID doesn't exist
+    #Adapted from professor and: https://docs.pytest.org/en/latest/assert.html
+    with pytest.raises(IndexError):
+        find_product("50", products)
+    
+
