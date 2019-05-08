@@ -34,6 +34,6 @@ And invoke it from the root directory of this repository to run tests:
 pytest
 ```
 
-##Monitor Build Status
+## Monitor Build Status
 
-[![Build Status](https://travis-ci.org/sambeyda/shopping-cart.svg?branch=master)](https://travis-ci.org/sambeyda/shopping-cart)
+[![Build Status](https://travis-ci.org/sambeyda/shopping-cart.svg?branch=revisited-testing)](https://travis-ci.org/sambeyda/shopping-cart)
