@@ -10,6 +10,11 @@ def to_usd(product_price):
 # Refactoring time stamp formatting logic: Ensures that human friendly current date/time is displayed
 def human_friendly_timestamp(date_time):
     return date_time.strftime("%m-%d-%Y %I:%M %p")
+def find_product(selected_id, products):
+    matching_products= [p for p in products if str(p["id"]) == str(selected_id)]
+    matching_product= matching_products[0]
+    return matching_product
+
 
 
 if __name__ == "__main__":
@@ -79,8 +84,9 @@ if __name__ == "__main__":
     print("--------------------------------")
     print("Shopping Cart Items:")
     for selected_id in selected_ids:
-        matching_products= [p for p in products if str(p["id"]) == str(selected_id)]
-        matching_product= matching_products[0]
+        ####matching_products= [p for p in products if str(p["id"]) == str(selected_id)]
+        ####matching_product= matching_products[0]
+        matching_product= find_product(selected_id, products)
         total_price= total_price + matching_product["price"]
         price_usd = to_usd(matching_product["price"])
         print("+ " + matching_product["name"] + " " + price_usd)
