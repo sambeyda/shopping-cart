@@ -3,6 +3,10 @@
 [Original project description](https://github.com/prof-rossetti/georgetown-opim-243-201901/blob/master/projects/shopping-cart.md)
 With this application, user's will able to create a receipt based on user inputted shopping cart selections.
 
+## Monitor Build Status
+
+[![Build Status](https://travis-ci.org/sambeyda/shopping-cart.svg?branch=revisited-testing)](https://travis-ci.org/sambeyda/shopping-cart)
+
 ## PREREQUISITES
 Python 3.x
 
