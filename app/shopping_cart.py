@@ -3,6 +3,11 @@
 #importing date module
 import datetime
 
+###REVISITATION
+# Refactoring price formatting logic: Display in USD with two decimals
+def to_usd(product_price):
+    return "${0:,.2f}".format(product_price)
+
 #inventory list
 products = [
      {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -72,20 +77,20 @@ for selected_id in selected_ids:
     matching_products= [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product= matching_products[0]
     total_price= total_price + matching_product["price"]
-    price_usd = '(${0:.2f})'.format(matching_product["price"])
+    price_usd = to_usd(matching_product["price"])
     print("+ " + matching_product["name"] + " " + price_usd)
 
 # The total cost of all shopping cart items, formatted as US dollars and cents (e.g. $4.50), calculated as the sum of their prices.
 print("--------------------------------")
-print("SUBTOTAL:", '${0:.2f}'.format(total_price))
+print("SUBTOTAL:", to_usd(total_price))
 
 # The amount of tax owed, calculated by multiplying the total cost by a District of Columbia sales tax rate of 6%.
 tax= total_price * .06
-print("+ District of Columbia Sales Tax (6%): ", '${0:.2f}'.format(tax))
+print("+ District of Columbia Sales Tax (6%): ", to_usd(tax))
 
 # The total amount owed, formatted as US dollars and cents (e.g. $4.77), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items.
 total=total_price + tax
-print("TOTAL AMOUNT OWED:", '${0:.2f}'.format(total))
+print("TOTAL AMOUNT OWED:", to_usd(total))
 
 # A friendly message thanking the customer and/or encouraging the customer to shop again.
 print("--------------------------------")
